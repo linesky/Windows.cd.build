@@ -45,10 +45,11 @@ class BareboneBuilder:
         self.execute_command("mkdir ./tmp",False)
         filename=filename.replace("/","\\")
 
-        fff='cmd /c ""C:\\Program Files (x86)\\7-Zip\\7z.exe\" x -y "$1" -o./tmp "'.replace("$1",filename)
+        self.execute_command('cmd /c ""C:\\Program Files (x86)\\7-Zip\\7z.exe\" x -y ".\\file\\CD_root.zip" -o./tmp "',False)
+        self.text_area.delete(1.0, tk.END)
+        fff='cmd.exe /c "".\\file\\gcc.cmd" "$1""'.replace("$1",filename)
         self.execute_command(fff,True)
-
-  
+    
         filesn=True
         
         while filesn:
@@ -61,14 +62,28 @@ class BareboneBuilder:
                 filesn=False
         filename=filename.replace(".zip","")
         
+        filename=filename.replace("/","\\")
+        
        
+        
+        
+        
+        self.execute_command("copy .\\tmp\\hello.bin .\\tmp\\hello.c32",True)
+        f3=open(".\\file\\head.o","rb")
+        heads=f3.read()
+        f3.close() 
+        f4=open(".\\tmp\\hello.bin","rb+")
+        f4.write(heads)
+        f4.close()
+        self.execute_command("copy  .\\tmp\\hello.bin .\\tmp\\CD_root\\isolinux\\hello.c32",True)     
        
        
 
 
 
-        fff='.\\file\\mkisofs.exe -o .\\data.iso    ".//tmp//$1"'.replace("$1",filename)
-        print(fff)
+
+        fff='.\\file\\mkisofs.exe -o .\\myos.iso -input-charset utf8 -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4  -boot-info-table .\\tmp\\CD_root'
+        
         self.execute_command(fff,True)
     def run_kernel(self):
         self.text_area.delete(1.0, tk.END)
