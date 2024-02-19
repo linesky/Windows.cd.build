@@ -13,3 +13,4 @@ https://sourceforge.net/projects/cdrtoolswin/
 
 https://www.cygwin.com/setup-x86_64.exe
 
+https://sourceforge.net/projects/mingw/
