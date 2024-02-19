@@ -11,4 +11,5 @@ https://www.7-zip.org/download.html
 https://sourceforge.net/projects/cdrtoolswin/
 
 
+https://www.cygwin.com/setup-x86_64.exe
 
