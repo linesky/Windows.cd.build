@@ -46,8 +46,8 @@ class BareboneBuilder:
         filename=filename.replace("/","\\")
 
         self.execute_command('cmd /c ""C:\\Program Files (x86)\\7-Zip\\7z.exe\" x -y ".\\file\\CD_root.zip" -o./tmp "',False)
-        self.text_area.delete(1.0, tk.END)
-        fff='cmd.exe /c "".\\file\\gcc.cmd" "$1""'.replace("$1",filename)
+        
+        fff='c:\\nasm\\nasm.exe -o .\\tmp\\hello.bin "$1"'.replace("$1",filename)
         self.execute_command(fff,True)
     
         filesn=True
@@ -69,12 +69,7 @@ class BareboneBuilder:
         
         
         self.execute_command("copy .\\tmp\\hello.bin .\\tmp\\hello.c32",True)
-        f3=open(".\\file\\head.o","rb")
-        heads=f3.read()
-        f3.close() 
-        f4=open(".\\tmp\\hello.bin","rb+")
-        f4.write(heads)
-        f4.close()
+        
         self.execute_command("copy  .\\tmp\\hello.bin .\\tmp\\CD_root\\isolinux\\hello.c32",True)     
        
        
