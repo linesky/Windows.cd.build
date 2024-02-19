@@ -11,6 +11,5 @@ https://www.7-zip.org/download.html
 https://sourceforge.net/projects/cdrtoolswin/
 
 
-https://www.cygwin.com/setup-x86_64.exe
 
-https://sourceforge.net/projects/mingw/
+https://www.nasm.us/pub/nasm/releasebuilds/2.08/win32/nasm-2.08-win32.zip
